@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Artist Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="dashboard artist-dashboard layout-with-sidebar">
+    <header class="dashboard-header">
+      <h2>Artist Dashboard</h2>
+      <button id="logout" class="logout-btn"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+    </header>
+    <div class="dashboard-body">
+      <aside class="sidebar">
+        <button data-section="profile" class="sidebar-link" aria-current="true"><i class="fa-solid fa-user"></i> Profile</button>
+        <button data-section="uploads" class="sidebar-link"><i class="fa-solid fa-upload"></i> Uploads</button>
+        <button data-section="collab" class="sidebar-link"><i class="fa-solid fa-handshake"></i> Collab</button>
+        <button data-section="chat" class="sidebar-link"><i class="fa-solid fa-comments"></i> Chat</button>
+        <button data-section="venues" class="sidebar-link"><i class="fa-solid fa-building"></i> Venues</button>
+        <button data-section="settings" class="sidebar-link"><i class="fa-solid fa-gear"></i> Settings</button>
+      </aside>
+      <main>
+        <section id="profile-section" class="dashboard-section">
+          <form id="artist-profile-form">
+            <div class="profile-card">
+              <div class="profile-photo-area">
+                <label for="profile-photo">Profile Photo</label>
+                <input type="file" id="profile-photo" accept="image/*">
+                <div id="profile-photo-preview"></div>
+              </div>
+              <div class="profile-fields">
+                <label>Name
+                  <input type="text" id="artist-name" required>
+                </label>
+                <label>Bio
+                  <textarea id="artist-bio" rows="3" required></textarea>
+                </label>
+                <label>Past Events
+                  <input type="text" id="artist-past" placeholder="e.g. Performed at Demo Fest 2023">
+                </label>
+              </div>
+            </div>
+            <div class="profile-links-area">
+              <label>Add Link (Spotify, Google Drive, YouTube, etc.)
+                <input type="url" id="artist-link-input" placeholder="Paste link and click Add">
+              </label>
+              <button type="button" id="add-link-btn"><i class="fa-solid fa-plus"></i> Add Link</button>
+              <ul id="artist-links-list"></ul>
+            </div>
+            <div class="profile-photos-area">
+              <label>Gallery Photos
+                <input type="file" id="artist-photos" accept="image/*" multiple>
+              </label>
+              <div id="artist-photos-preview" class="gallery-preview"></div>
+            </div>
+            <div class="profile-videos-area">
+              <label>Add Video Link (YouTube, Drive, etc.)
+                <input type="url" id="artist-video-input" placeholder="Paste video link and click Add">
+              </label>
+              <button type="button" id="add-video-btn"><i class="fa-solid fa-plus"></i> Add Video</button>
+              <ul id="artist-videos-list"></ul>
+            </div>
+            <button type="submit" class="save-profile-btn"><i class="fa-solid fa-floppy-disk"></i> Save Profile</button>
+          </form>
+          <div id="profile-save-status"></div>
+        </section>
+        <section id="uploads-section" class="dashboard-section" style="display:none;">Upload Content (Spotify, Google Drive, direct upload)</section>
+        <section id="collab-section" class="dashboard-section" style="display:none;">
+          <div class="collab-requests-area">
+            <h3>Find Artists to Collaborate</h3>
+            <input type="text" id="artist-search-input" placeholder="Search artists by name..." />
+            <div id="artist-search-results" class="artist-list"></div>
+            <hr style="margin: 24px 0;">
+            <h4>Incoming Collab Requests</h4>
+            <div id="incoming-collab-requests"></div>
+            <h4>Outgoing Collab Requests</h4>
+            <div id="outgoing-collab-requests"></div>
+          </div>
+        </section>
+        <section id="chat-section" class="dashboard-section" style="display:none;">
+          <div class="chat-area">
+            <div class="chat-collab-list">
+              <h3>Collaborators</h3>
+              <div id="collab-chat-list"></div>
+            </div>
+            <div class="chat-window-area" id="chat-window-area" style="display:none;">
+              <div id="chat-with-header"></div>
+              <div id="chat-messages" class="chat-messages"></div>
+              <form id="chat-form">
+                <input type="text" id="chat-input" placeholder="Type a message..." autocomplete="off" />
+                <button type="submit"><i class="fa-solid fa-paper-plane"></i></button>
+              </form>
+            </div>
+          </div>
+        </section>
+        <section id="venues-section" class="dashboard-section" style="display:none;">Venues (view, send requests)</section>
+        <section id="settings-section" class="dashboard-section" style="display:none;">
+          <h3>Settings</h3>
+          <p>Coming soon.</p>
+        </section>
+      </main>
+    </div>
+  </div>
+  <script src="js/artist.js"></script>
+</body>
+</html> 

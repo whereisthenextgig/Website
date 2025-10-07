@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="dashboard user-dashboard layout-with-sidebar">
+    <header class="dashboard-header">
+      <h2>Fan Dashboard</h2>
+      <button id="logout" class="logout-btn"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+    </header>
+    <div class="dashboard-body">
+      <aside class="sidebar">
+        <button data-section="dashboard" class="sidebar-link" aria-current="true"><i class="fa-solid fa-bolt"></i> Dashboard</button>
+        <button data-section="venues" class="sidebar-link"><i class="fa-solid fa-building"></i> Venues</button>
+        <button data-section="bookings" class="sidebar-link"><i class="fa-solid fa-ticket"></i> Bookings</button>
+        <button data-section="settings" class="sidebar-link"><i class="fa-solid fa-gear"></i> Settings</button>
+      </aside>
+      <main>
+        <section id="dashboard-section" class="dashboard-section">
+          <div class="user-events-area">
+            <h3>Upcoming Events</h3>
+            <div id="user-events-list"></div>
+          </div>
+        </section>
+        <section id="venues-section" class="dashboard-section" style="display:none;">
+          <div class="user-venues-area">
+            <h3>Venues & Events</h3>
+            <div id="user-venues-list"></div>
+          </div>
+        </section>
+        <section id="bookings-section" class="dashboard-section" style="display:none;">
+          <div class="user-bookings-area">
+            <h3>Your Bookings</h3>
+            <div id="user-bookings-list"></div>
+          </div>
+        </section>
+        <section id="settings-section" class="dashboard-section" style="display:none;">
+          <h3>Settings</h3>
+          <p>Coming soon.</p>
+        </section>
+      </main>
+    </div>
+  </div>
+  <div id="user-info-modal" class="user-payment-modal" style="display:none;">
+    <div class="user-payment-modal-content">
+      <h4>Enter Your Details</h4>
+      <form id="user-info-form">
+        <label>Name
+          <input type="text" id="user-info-name" required>
+        </label>
+        <label>Email
+          <input type="email" id="user-info-email" required>
+        </label>
+        <label>Phone
+          <input type="tel" id="user-info-phone" required pattern="[0-9]{10,}" maxlength="15">
+        </label>
+        <button type="submit" class="user-event-book-btn">Save & Continue</button>
+      </form>
+    </div>
+  </div>
+  <div id="payment-modal" class="user-payment-modal" style="display:none;">
+    <div class="user-payment-modal-content">
+      <button class="close-payment-modal-btn"><i class="fa-solid fa-xmark"></i></button>
+      <h4>Book Ticket</h4>
+      <div id="payment-event-summary"></div>
+      <div class="payment-price"><strong>Price:</strong> ₹499</div>
+      <div class="payment-methods">
+        <label><input type="radio" name="payment-method" value="UPI" checked> UPI</label>
+        <label><input type="radio" name="payment-method" value="Card"> Card</label>
+        <label><input type="radio" name="payment-method" value="Wallet"> Wallet</label>
+      </div>
+      <button id="pay-and-book-btn" class="user-event-book-btn">Pay & Book</button>
+      <div id="payment-success-msg" style="margin-top:10px;color:#059669;"></div>
+      <div id="ticket-actions" style="display:none; margin-top:10px;">
+        <button id="download-ticket-btn" class="user-event-book-btn" style="background:linear-gradient(90deg,#fbbf24 0%,#f472b6 100%);color:#222;">Download Ticket</button>
+        <a href="#" id="view-confirmation-link" style="margin-left:16px;font-size:1rem;">View Confirmation</a>
+      </div>
+    </div>
+  </div>
+  <div id="confirmation-modal" class="user-payment-modal" style="display:none;">
+    <div class="user-payment-modal-content">
+      <button class="close-confirmation-modal-btn"><i class="fa-solid fa-xmark"></i></button>
+      <h4>Confirmation Sent</h4>
+      <div id="confirmation-content"></div>
+    </div>
+  </div>
+  <script src="js/user.js"></script>
+</body>
+</html> 

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Venue Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="dashboard venue-dashboard layout-with-sidebar">
+    <header class="dashboard-header">
+      <h2>Venue Dashboard</h2>
+      <div>
+        <button id="switch-venue"><i class="fa-solid fa-right-left"></i> Switch Venue</button>
+        <button id="logout" class="logout-btn"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+      </div>
+    </header>
+    <div class="dashboard-body">
+      <aside class="sidebar">
+        <button data-section="profile" class="sidebar-link" aria-current="true"><i class="fa-solid fa-building"></i> Profile</button>
+        <button data-section="calendar" class="sidebar-link"><i class="fa-solid fa-calendar-days"></i> Calendar</button>
+        <button data-section="artists" class="sidebar-link"><i class="fa-solid fa-microphone"></i> Artists</button>
+        <button data-section="events" class="sidebar-link"><i class="fa-solid fa-ticket"></i> Events</button>
+        <button data-section="settings" class="sidebar-link"><i class="fa-solid fa-gear"></i> Settings</button>
+      </aside>
+      <main>
+        <section id="profile-section" class="dashboard-section">
+          <form id="venue-profile-form">
+            <div class="venue-profile-card">
+              <div class="venue-photo-area">
+                <label for="venue-photo">Venue Photo</label>
+                <input type="file" id="venue-photo" accept="image/*">
+                <div id="venue-photo-preview"></div>
+              </div>
+              <div class="venue-fields">
+                <label>Name
+                  <input type="text" id="venue-name" required>
+                </label>
+                <label>Location
+                  <input type="text" id="venue-location" required>
+                </label>
+                <label>Description
+                  <textarea id="venue-desc" rows="3" required></textarea>
+                </label>
+              </div>
+            </div>
+            <button type="submit" class="save-profile-btn"><i class="fa-solid fa-floppy-disk"></i> Save Profile</button>
+          </form>
+          <div id="venue-profile-save-status"></div>
+        </section>
+        <section id="calendar-section" class="dashboard-section" style="display:none;">
+          <div class="venue-calendar-area">
+            <h3>Open Dates for Artist Applications</h3>
+            <form id="add-date-form">
+              <input type="date" id="venue-date-input" required>
+              <button type="submit"><i class="fa-solid fa-plus"></i> Add Date</button>
+            </form>
+            <div id="venue-dates-list"></div>
+          </div>
+        </section>
+        <section id="artists-section" class="dashboard-section" style="display:none;">
+          <div class="venue-artists-area">
+            <h3>Browse Artists</h3>
+            <input type="text" id="venue-artist-search-input" placeholder="Search artists by name..." />
+            <div id="venue-artist-list" class="artist-list"></div>
+          </div>
+        </section>
+        <section id="events-section" class="dashboard-section" style="display:none;">
+          <div class="venue-events-area">
+            <h3>Events</h3>
+            <div id="venue-events-list"></div>
+          </div>
+        </section>
+        <section id="settings-section" class="dashboard-section" style="display:none;">
+          <h3>Settings</h3>
+          <p>Coming soon.</p>
+        </section>
+      </main>
+    </div>
+  </div>
+  <script src="js/venue.js"></script>
+</body>
+</html> 

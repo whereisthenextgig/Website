@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music Event Platform</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <div class="hero-inner">
+        <div class="hero-media">
+          <img src="https://images.unsplash.com/photo-1483412033650-1015ddeb83d1?q=80&w=1600&auto=format&fit=crop" alt="Concert crowd demo image">
+        </div>
+        <div class="hero-copy">
+          <h1>Discover. Collaborate. Perform.</h1>
+          <p>Where artists meet venues and fans book unforgettable nights.</p>
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <section class="cards">
+        <div class="card" role="button" tabindex="0" data-type="artist">
+          <div class="card-icon"><i class="fa-solid fa-microphone"></i></div>
+          <h3>Artists</h3>
+          <p>Create your profile, collaborate, and apply to perform at venues.</p>
+          <div class="card-footer">
+            <button class="demo-login-btn demo-card-btn" data-demo="artist"><i class="fa-solid fa-wand-magic-sparkles"></i> Demo Artist</button>
+          </div>
+        </div>
+        <div class="card" role="button" tabindex="0" data-type="venue">
+          <div class="card-icon"><i class="fa-solid fa-building"></i></div>
+          <h3>Venues</h3>
+          <p>Open dates, review applicants, and announce performances.</p>
+          <div class="card-footer">
+            <button class="demo-login-btn demo-card-btn" data-demo="venue"><i class="fa-solid fa-wand-magic-sparkles"></i> Demo Venue</button>
+          </div>
+        </div>
+        <div class="card" role="button" tabindex="0" data-type="user">
+          <div class="card-icon"><i class="fa-solid fa-user"></i></div>
+          <h3>Fans</h3>
+          <p>Explore events, book tickets, and get your digital passes.</p>
+          <div class="card-footer">
+            <button class="demo-login-btn demo-card-btn" data-demo="user"><i class="fa-solid fa-wand-magic-sparkles"></i> Demo User</button>
+          </div>
+        </div>
+      </section>
+      <div class="login-methods" style="display:none;">
+        <h3>Login with:</h3>
+        <button class="login-btn" data-method="gmail"><i class="fa-brands fa-google"></i> Gmail</button>
+        <button class="login-btn" data-method="facebook"><i class="fa-brands fa-facebook"></i> Facebook</button>
+        <button class="login-btn" data-method="otp"><i class="fa-solid fa-key"></i> OTP</button>
+        <button class="back-btn">Back</button>
+      </div>
+    </div>
+  </div>
+  <div id="user-login-modal" class="user-payment-modal" style="display:none;">
+    <div class="user-payment-modal-content">
+      <h4>User Login / Signup</h4>
+      <form id="user-login-form">
+        <label>Name
+          <input type="text" id="login-user-name" required>
+        </label>
+        <label>Email
+          <input type="email" id="login-user-email" required>
+        </label>
+        <label>Phone
+          <input type="tel" id="login-user-phone" required pattern="[0-9]{10,}" maxlength="15">
+        </label>
+        <button type="submit" class="user-event-book-btn">Continue</button>
+      </form>
+      <button id="demo-user-login-btn" class="demo-login-btn" style="margin-top:12px;"><i class="fa-solid fa-wand-magic-sparkles"></i> Continue as Demo User</button>
+    </div>
+  </div>
+  <div id="venue-login-modal" class="user-payment-modal" style="display:none;">
+    <div class="user-payment-modal-content">
+      <h4>Venue Login / Select Venue</h4>
+      <div style="margin-bottom:10px;">Select existing venue or create a new one.</div>
+      <label>Existing Venues
+        <select id="venue-select"></select>
+      </label>
+      <button id="select-venue-btn" class="user-event-book-btn" style="margin:10px 0 16px 0;">Continue with Selected</button>
+      <hr>
+      <h4>Create New Venue</h4>
+      <form id="venue-create-form">
+        <label>Name
+          <input type="text" id="create-venue-name" required>
+        </label>
+        <label>Location
+          <input type="text" id="create-venue-location" required>
+        </label>
+        <label>Description
+          <textarea id="create-venue-desc" rows="3" required></textarea>
+        </label>
+        <button type="submit" class="user-event-book-btn">Create & Continue</button>
+      </form>
+    </div>
+  </div>
+  <script src="js/main.js"></script>
+</body>
+</html> 
